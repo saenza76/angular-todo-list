@@ -1,0 +1,18 @@
+<div *ngIf = "showItemsDone > 0" class = "text-center">
+  <h4 class = "text-primary">My Completed Items</h4>
+  <div class = "card-group">
+      <div  *ngFor = "let item of toDoService.items" class= "text-left">
+        <div *ngIf = "item.completed == true" style = "margin-right: 10px; margin-top: 15px;" >
+            <div class="card" style = "min-width:250px">
+              <div class="card-header">
+                <h6 class = "text-primary">Item #{{item.taskNumber}}</h6>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title">{{item.title}}</h4>
+                <p class="card-text">{{item.info}}.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>

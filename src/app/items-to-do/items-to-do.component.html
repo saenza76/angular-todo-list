@@ -1,0 +1,21 @@
+<h4 class = "text-center text-primary" style = "margin-top: 10px;">My Items To Be Done</h4>
+<p *ngIf = "toDoService.items.length == 0 || itemsCompleted == toDoService.items.length" class = "text-muted text-center">You don't have any items to do yet.</p>
+
+<div class = "card-group">
+    <div  *ngFor = "let item of toDoService.items">
+      <div *ngIf = "item.completed == false" style = "margin-right: 10px; margin-top: 15px;" >
+          <div class="card">
+            <div class="card-header">
+              <h6 class = "text-primary">Item #{{item.taskNumber}}</h6>
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">{{item.title}}</h4>
+              <p class="card-text">{{item.info}}.</p>
+              <button (click)= "item.completed = true; itemsCompleted = itemsCompleted + 1" class = "btn btn-primary">Mark Done</button>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+<items-done [showItemsDone] = "itemsCompleted"></items-done>
